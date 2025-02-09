@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🍌🍆</title>
+    <style>
+        body {
+            background: linear-gradient(to right, #ffd900, #7105b4);
+            color: #000000;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        b {
+            font-size: 1.5rem;
+            color: #000000;
+        }
+        .image-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        img {
+            width: 200px;
+            height: auto;
+        }
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .banana-button {
+            background: linear-gradient(to right, #ffd900, #ffa600);
+            border: none;
+            color: #000000;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 12px;
+            transition: transform 0.1s;
+            font-weight: bold;
+            position: relative;
+        }
+        .banana-button:active {
+            transform: translateY(4px);
+        }
+        .eggplant-button {
+            background: linear-gradient(to right, #7105b4, #4c0070);
+            border: none;
+            color: #ffffff;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 12px;
+            transition: transform 0.1s;
+            font-weight: bold;
+            position: relative;
+        }
+        .eggplant-button:active {
+            transform: translateY(4px);
+        }
+        .banana-counter {
+            background: linear-gradient(to right, #ffd900, #ffa600);
+            border: none;
+            color: #000000;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            border-radius: 12px;
+            font-weight: bold;
+            position: relative;
+        }
+        .eggplant-counter {
+            background: linear-gradient(to right, #7105b4, #4c0070);
+            border: none;
+            color: #ffffff;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            border-radius: 12px;
+            font-weight: bold;
+            position: relative;
+        }
+        .floating-plus-one {
+            position: absolute;
+            font-size: 16px;
+            font-weight: bold;
+            animation: floatUp 5s ease-out forwards;
+            pointer-events: none;
+        }
+        .banana-counter .floating-plus-one {
+            color: #000000;
+        }
+        .eggplant-counter .floating-plus-one {
+            color: #ffffff;
+        }
+        @keyframes floatUp {
+            0% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(-100vh);
+            }
+        }
+    </style>
+</head>
+<body>
+    <p><b>Welcome to the website with a picture of a banana emoji and a picture of an eggplant emoji.</b></p>
+    <div class="image-container">
+        <img src="banananananaan.png" alt="a banana">
+        <img src="egplant.jpg.png" alt="an eggplant">
+    </div>
+    <div class="button-container">
+        <div>
+            <button class="banana-button" id="bananaButton">🍌Team Banana🍌</button>
+            <p class="banana-counter" id="bananaCounter">Banana clicks: 0</p>
+        </div>
+        <div>
+            <button class="eggplant-button" id="eggplantButton">🍆Team Eggplant🍆</button>
+            <p class="eggplant-counter" id="eggplantCounter">Eggplant clicks: 0</p>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            let bananaCount = 0;
+            const bananaButton = document.getElementById('bananaButton');
+            const bananaCounter = document.getElementById('bananaCounter');
+            bananaButton.addEventListener('click', function() {
+                bananaCount++;
+                bananaCounter.innerText = 'Banana clicks: ' + bananaCount;
+                showFloatingPlusOne(bananaCounter);
+            });
+
+            let eggplantCount = 0;
+            const eggplantButton = document.getElementById('eggplantButton');
+            const eggplantCounter = document.getElementById('eggplantCounter');
+            eggplantButton.addEventListener('click', function() {
+                eggplantCount++;
+                eggplantCounter.innerText = 'Eggplant clicks: ' + eggplantCount;
+                showFloatingPlusOne(eggplantCounter);
+            });
+
+            function showFloatingPlusOne(counterElement) {
+                const plusOne = document.createElement('span');
+                plusOne.className = 'floating-plus-one';
+                plusOne.innerText = '+1';
+                counterElement.appendChild(plusOne);
+                setTimeout(() => {
+                    plusOne.remove();
+                }, 5000);
+            }
+        });
+    </script>
+</body>
+</html>
